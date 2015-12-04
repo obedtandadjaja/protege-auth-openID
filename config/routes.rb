@@ -1,6 +1,6 @@
 ProtegeOpenIdConnect::Application.routes.draw do
-  resource :session,   only: :destroy
-  resource :dashboard, only: :show
+  resource :session,    only: :destroy
+  resource :dashboard,  only: :show
 
   resources :clients, except: :show
   resources :authorizations, only: [:new, :create]
@@ -12,7 +12,15 @@ ProtegeOpenIdConnect::Application.routes.draw do
     resource :client,   only: :create
   end
 
-  root to: 'top#index'
+  root to: 'login#main'
+
+  # TODO: make a post method on the login controller
+  get '/auth/login' => 'login#index'
+  post '/auth/login' => 'login#index'
+
+  # TODO: make register controller but first try to find if Nov has made one, if yes then just change that one
+  get '/auth/register' => 'register#index'
+  post '/auth/register' => 'register#index'
 
   match '.well-known/:id', to: 'discovery#show'
   match 'user_info',        to: 'user_info#show', :via => [:get, :post]
