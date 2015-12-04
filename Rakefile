@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-ConnectOp::Application.load_tasks
+ProtegeOpenIdConnect::Application.load_tasks

@@ -1,4 +1,4 @@
-ConnectOp::Application.routes.draw do
+ProtegeOpenIdConnect::Application.routes.draw do
   resource :session,   only: :destroy
   resource :dashboard, only: :show
 
