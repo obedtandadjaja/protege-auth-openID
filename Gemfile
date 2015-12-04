@@ -12,6 +12,9 @@ gem 'rack-oauth2'
 gem 'openid_connect'
 gem 'rename'
 
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.0.0'
+
 group :development, :test do
   gem 'sqlite3'
 end
