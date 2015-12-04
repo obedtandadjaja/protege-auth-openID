@@ -1,23 +1,79 @@
 <!DOCTYPE html>
-<html xmlns:fb="http://www.facebook.com/2008/fbml">
-  <head>
-    <meta charset="utf-8" />
-    <title><%= 'site.title'.t %> - <%= 'site.description'.t %></title>
-    <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js' %>
-    <%= javascript_include_tag :all %>
-    <%= csrf_meta_tag %>
-    <%= viewport_meta_tag %>
-    <%= apple_app_capable_meta_tag %>
-    <%= apple_app_icon_link_tag %>
-  </head>
-  <%= content_tag :body, class: controller_name do %>
-    <%= yield :top %>
-    <%= render 'layouts/header' %>
-    <div class="main">
-      <%= yield %>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= 'site.title'.t %> - <%= 'site.description'.t %></title>
+
+  <!-- Stylesheets -->
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet" />
+  <link href="//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'" />
+  <link rel="stylesheet" href="{{ URL::asset('css/register/style.css') }}" />
+
+  <!-- More stylesheets -->
+  <%= stylesheet_link_tag "style" %>
+  <%= yield :css %>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse" style="margin-bottom: 0; background-color: #3399CC; border-radius: 0; border: 0;">
+    <div class="container-fluid">
+      <div class="navbar-left">
+        <a class="navbar-brand" href="http://protege.xyz" style="padding: 5px; color: white;">
+          <%= image_tag('protege.jpg', :style=>"border-radius:100%; padding: 0px;", :class=>"col-sm-2") %>
+          <p class="col-sm-8" style="margin-top: 7px">Protégé</p>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!--<li><a href="/proposals" style="color: white">Home</a></li>-->
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <% if authenticated? %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: white">User Name <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <%= form_tag session_path, method: :delete do  %>
+                  <li><%= submit_tag("Log Out", :style=>"background: none; border: none; width: 100%; text-align: left", :name=>"submit") %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% else %>
+            <li><a href="/auth/login" style="color: white">Login</a></li>
+            <li><a href="/auth/register" style="color: white">Register</a></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <%= render 'layouts/footer' %>
-    <%= yield :bottom %>
-  <% end %>
+  </nav>
+    <br/>
+  <%= yield :top %>
+  
+  <%= yield %>
+
+  <%= yield :bottom %>
+
+    <footer id="footer">
+        <p class="copyright">&copy; Protégé 2015</p>
+    </footer>
+
+  <!-- Scripts -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.js"></script>
+  <%= yield :script %>
+    <script>
+        $('#flash-overlay-modal').modal();
+    </script>
+</body>
+
 </html>
