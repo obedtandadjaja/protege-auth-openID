@@ -4,6 +4,9 @@ class CreateAccounts < ActiveRecord::Migration
       t.string :identifier
       t.datetime :last_logged_in_at
       t.timestamps
+      t.string :name
+      t.string :email
+      t.string :password_digest
     end
     add_index :accounts, :identifier, unique: true
   end

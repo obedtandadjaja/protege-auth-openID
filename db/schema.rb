@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(:version => 20120229153919) do
     t.datetime "last_logged_in_at"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
   end
 
   add_index "accounts", ["identifier"], :name => "index_accounts_on_identifier", :unique => true
