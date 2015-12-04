@@ -27,9 +27,9 @@
   <nav class="navbar navbar-inverse" style="margin-bottom: 0; background-color: #3399CC; border-radius: 0; border: 0;">
     <div class="container-fluid">
       <div class="navbar-left">
-        <a class="navbar-brand" href="http://protege.xyz" style="padding: 5px; color: white;">
-          <%= image_tag('protege.jpg', :style=>"border-radius:100%; padding: 0px;", :class=>"col-sm-2") %>
-          <p class="col-sm-8" style="margin-top: 7px">Protégé</p>
+        <a class="navbar-brand" href="/" style="padding: 5px; color: white;">
+          <%= image_tag('protege.jpg', :style=>"border-radius:100%; padding: 0px; width: 35px; height: 35px; display: inline; margin-left: 30px") %>
+          <p style="margin-top: 7px; display: inline">Protégé</p>
         </a>
       </div>
 
@@ -61,6 +61,12 @@
     </div>
   </nav>
     <br/>
+  
+  <!-- Flash Message -->
+  <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-danger" %>
+  <% end %>
+
   <%= yield :top %>
   
   <%= yield %>
