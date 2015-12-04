@@ -1,24 +1,17 @@
-# OpenIDConnect Sample
+# Protégé Authentication|Authorization Mechanism using OpenID Connect
 
-A sample OpenID Connect Provider ("OP") using the `openid_connect` gem.
+An OpenID Connect Provider Project using the `openid_connect` gem.
 
 
 ## Resources
 
-For this sample:
-
-* View source on GitHub: https://github.com/nov/openid_connect_sample
+* View original source on GitHub: https://github.com/nov/openid_connect_sample
 * Report Issues on GitHub: https://github.com/nov/openid_connect_sample/issues
 
 
 For more information, see readme and wiki for `openid_connect` gem:
 
 * https://github.com/nov/openid_connect
-
-
-Also of interest, the corresponding sample RP:
-
-* https://github.com/nov/openid_connect_sample_rp
 
 
 ## Live Example
@@ -33,42 +26,26 @@ To see it in action right now:
 * the RP will use the OP to authenticate
 
 
-## How to Run This Example on Your Machine
+## How to Run This Project on Your Machine
 
 ### Localhost
 
 To run this in development mode on your local machine:
 
 * Download (or fork or clone) this repo
+* Make sure you have downloaded PostgreSQL on your machine, if you haven't resort to Google and search how to install postgreSQL on your machine
 * `bundle install` (see "Note" section below if you get "pg"-gem-related problems)
 * `bundle exec rake db:create db:migrate db:seed` (you have SQLite installed, right?)
-* modify `config/connect/id_token/issuer.yml` -- change `issuer` to http://localhost:3000
+* Modify `config/connect/id_token/issuer.yml` -- change `issuer` to http://localhost:3000
 * `bundle exec rails server -p 3000`
-
-Point your browser at http://localhost:3000
-
-If you download and run [the sample RP server](https://connect-rp.herokuapp.com),
-you can have it use this OP (use `localhost:3000` in the "Discover" field).
-The two servers on localhost must run on different ports.
-
-Obviously, external servers will not be able to connect to an OP that is running on localhost.
-
-
-### On a public server
-
-To run it on a public server, the steps are the same as for localhost, except
-you will set `issuer` in the issuer.yml config file to your domain name.
-
-Once it's running, you can use [Nov's Sample RP on Heroku](https://connect-rp.herokuapp.com)
-to discover and connect to it.
-
+* Point your browser at http://localhost:3000
 
 ## Notes
 
 * The Gemfile includes gem 'pg' (for PostgreSQL), but you can remove it.
   Nov uses PostgreSQL for his Heroku deployment, but the default DB configs are all SQLite.
 * The Facebook link won't work unless you register your app with them.
-
+* Email obed.tandadjaja@gmail.com for the project's Facebook and Google clientID and clientSecret
 
 ## Centos OpenSSL Complications
 
@@ -85,4 +62,5 @@ may be of help.
 
 ## Copyright
 
+Copyright (c) 2015 Protégé LLC. See http://protege.xyz for details.
 Copyright (c) 2011 nov matake. See LICENSE for details.
