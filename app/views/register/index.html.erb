@@ -1,0 +1,46 @@
+<div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default" style="margin-bottom: 70px">
+        <div class="panel-heading">Register</div>
+        <div class="panel-body">
+            
+			<%= form_for :account, url: '/auth/register', html:{class: "form-horizontal"} do |f| %>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Name</label>
+                    <div class="col-md-6">
+                        <%= f.text_field :name, class: 'form-control' %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">E-Mail Address</label>
+                    <div class="col-md-6">
+                        <%= f.email_field :email, class: 'form-control' %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Password</label>
+                    <div class="col-md-6">
+                        <%= f.password_field :password, class: 'form-control' %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-4 control-label">Confirm Password</label>
+                    <div class="col-md-6">
+                        <%= f.password_field :password_confirmation, class: 'form-control' %>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 col-md-offset-4">
+                        <%= f.submit "Submit", class: "btn btn-default" %>
+                    </div>
+                </div>
+
+            <% end %>
+
+        </div>
+    </div>
+</div>
