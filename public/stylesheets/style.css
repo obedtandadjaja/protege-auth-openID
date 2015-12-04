@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 30px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color: white;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+body {
+  background-color: #f0f2f5;;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  color: #339933;
+
+}
+
+h3 {
+font-size:12pt;
+text-align:center;
+font-weight:900;
+}
+a {
+  color: #66cc66;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.box {
+  background-color:#ffffff;
+  border-radius:10px;
+  padding:50px;
+-webkit-box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.23);
+-moz-box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.23);
+box-shadow: 2px 2px 17px 0px rgba(0,0,0,0.23);
+    border-radius:10px;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.r {
+	width:700px;
+}
+
+.color {
+    color: #336666;
+}
+.f {
+width:40%;	
+}
+
+.login {
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  height: 60px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #2ecc71;
+  border: 0;
+  border-bottom: 2px solid #28be68;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #28be68;
+  box-shadow: inset 0 -2px #28be68;
+
+}
+
+.login:hover {
+	background-color: #28b363;
+}
+
+li
+{
+  display: inline;
+  list-style-type: none;
+  padding-right: 7px;
+}
