@@ -12,6 +12,14 @@ class Account < ActiveRecord::Base
 
   validates :identifier, presence: true, uniqueness: true
 
+  has_secure_password
+
+  validates :password, :presence => true,
+      :confirmation => true,
+      :length => {:within => 6..40},
+      :on => :create, :if => :password
+  validates :email, :presence => true, :uniqueness => true
+
   def to_response_object(access_token)
     userinfo = (google || facebook || fake).userinfo
     unless access_token.accessible?(Scope::PROFILE)
