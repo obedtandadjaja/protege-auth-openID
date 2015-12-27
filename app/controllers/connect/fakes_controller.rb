@@ -7,7 +7,8 @@ class Connect::FakesController < ApplicationController
     if account && account.authenticate(params[:password])
       	# Save the user id inside the browser cookie. This is how we keep the user
       	# logged in when they navigate around the website.
-      	authenticate Connect::Fake.authenticate
+        Connect::Fake.authenticate(params)
+      	authenticate account
       	logged_in!
     else
       	# If user's login doesn't work, send them back to the login form.
