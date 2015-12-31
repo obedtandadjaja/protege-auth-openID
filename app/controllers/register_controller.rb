@@ -9,7 +9,7 @@ class RegisterController < ApplicationController
 		@account = Account.new(params['account'])
 		if @account.save
 			flash[:success] = "Your account has been successfully created"
-			redirect_to('/')
+			redirect_to('/auth/login')
 		else
 			flash[:danger] = Array.new
 		    @account.errors.full_messages.each do |error_message|
