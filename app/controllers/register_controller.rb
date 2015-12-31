@@ -7,8 +7,16 @@ class RegisterController < ApplicationController
 	# handles the form POST requests
 	def store
 		@account = Account.new(params['account'])
-		@account.save
-		redirect_to('/')
+		if @account.save
+			flash[:success] = "Your account has been successfully created"
+			redirect_to('/')
+		else
+			flash[:danger] = Array.new
+		    @account.errors.full_messages.each do |error_message|
+		      flash[:danger] << error_message
+		    end
+			redirect_to :back
+		end
 	end
 
 end
