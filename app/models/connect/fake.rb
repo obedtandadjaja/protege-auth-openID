@@ -15,7 +15,7 @@ class Connect::Fake < ActiveRecord::Base
 
   class << self
     def authenticate(params)
-      Connect::Fake.find_or_create_by(account_id: Account.where(email: params[:email]).first.id)
+      Connect::Fake.create!(account_id: Account.where(email: params[:email]).first.id)
     end
   end
 end
