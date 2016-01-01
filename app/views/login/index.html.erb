@@ -4,8 +4,7 @@
 			<div class="panel-heading">Login</div>
 			<div class="panel-body">
 
-				<form class="form-horizontal" role="form" method="POST" action="/auth/login">
-					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<%= form_for :fake, url: connect_fake_path, html:{class: "form-horizontal"} do |f| %>
 
 					<div class="form-group">
 						<label class="col-md-4 control-label">E-Mail Address</label>
@@ -36,10 +35,10 @@
 							<button type="submit" class="btn btn-primary" style="margin-right: 15px;">
 								Login
 							</button>
-				            <a href="/password/email">Forgot Your Password?</a>
+				            <a href="/password_resets/new">Forgot Your Password?</a>
 				        </div>
 				    </div>
-				</form>
+				<% end %>
 
 				<hr/>
 

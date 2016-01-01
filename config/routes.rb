@@ -1,4 +1,9 @@
 ProtegeOpenIdConnect::Application.routes.draw do
+  default_url_options :host => "localhost:3000"
+
+  get '/password_resets/:id/edit' => 'password_resets#edit'
+
+  resource :password_resets
   resource :session,    only: :destroy
   resource :dashboard,  only: :show
 

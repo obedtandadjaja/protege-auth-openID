@@ -14,8 +14,8 @@ class Connect::Fake < ActiveRecord::Base
   end
 
   class << self
-    def authenticate
-      Account.create!(fake: create!)
+    def authenticate(params)
+      Connect::Fake.create!(account_id: Account.where(email: params[:email]).first.id)
     end
   end
 end

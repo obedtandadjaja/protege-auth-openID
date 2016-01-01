@@ -12,6 +12,27 @@ class Account < ActiveRecord::Base
 
   validates :identifier, presence: true, uniqueness: true
 
+  has_secure_password
+
+  validates :password, :presence => true,
+      :confirmation => true,
+      :length => {:within => 6..40},
+      :if => :password
+  validates :email, :presence => true, :uniqueness => true
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    AccountMailer.password_reset(self).deliver
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while Account.exists?(column => self[column])
+  end
+
   def to_response_object(access_token)
     userinfo = (google || facebook || fake).userinfo
     unless access_token.accessible?(Scope::PROFILE)
@@ -35,4 +56,5 @@ class Account < ActiveRecord::Base
   def setup
     self.identifier = SecureRandom.hex(8)
   end
+
 end

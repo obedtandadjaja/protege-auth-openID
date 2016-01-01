@@ -9,7 +9,6 @@
   <!-- Stylesheets -->
   <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.css" rel="stylesheet" />
   <link href="//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'" />
-  <link rel="stylesheet" href="{{ URL::asset('css/register/style.css') }}" />
 
   <!-- More stylesheets -->
   <%= stylesheet_link_tag "style" %>
@@ -53,8 +52,8 @@
             </li>
           <% else %>
             <!-- TODO: add links to Login and Register -->
-            <li><a href="" style="color: white">Login</a></li>
-            <li><a href="" style="color: white">Register</a></li>
+            <li><a href="/auth/login" style="color: white">Login</a></li>
+            <li><a href="/auth/register" style="color: white">Register</a></li>
           <% end %>
         </ul>
       </div>
@@ -63,9 +62,33 @@
     <br/>
   
   <!-- Flash Message -->
-  <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: "alert alert-danger" %>
-  <% end %>
+  <% if flash[:danger] %>
+        <div class="alert alert-danger">
+            <ul>
+            <% if flash[:danger].kind_of?(Array) %>
+                <% flash[:danger].each do |flash| %>
+                    <%= content_tag :li, flash, class: "alert" %>
+                <% end %>
+            <% else %>
+                <%= content_tag :li, flash[:danger] %>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <% if flash[:success] %>
+        <div class="alert alert-success">
+            <ul>
+            <% if flash[:success].kind_of?(Array) %>
+                <% flash[:success].each do |flash| %>
+                    <%= content_tag :li, flash, class: "alert" %>
+                <% end %>
+            <% else %>
+                <%= content_tag :li, flash[:success] %>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
 
   <%= yield :top %>
   
