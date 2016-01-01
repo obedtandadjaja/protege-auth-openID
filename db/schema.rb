@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229153919) do
+ActiveRecord::Schema.define(:version => 20151231200526) do
 
   create_table "access_token_request_objects", :force => true do |t|
     t.integer  "access_token_id"
@@ -41,11 +41,13 @@ ActiveRecord::Schema.define(:version => 20120229153919) do
   create_table "accounts", :force => true do |t|
     t.string   "identifier"
     t.datetime "last_logged_in_at"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "accounts", ["identifier"], :name => "index_accounts_on_identifier", :unique => true
