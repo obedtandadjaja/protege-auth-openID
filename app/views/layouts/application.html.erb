@@ -62,7 +62,7 @@
     <br/>
   
   <!-- Flash Message -->
-  <% if flash[:danger] %>
+  <% if flash[:danger] || flash[:notice] %>
         <div class="alert alert-danger">
             <ul>
             <% if flash[:danger].kind_of?(Array) %>
