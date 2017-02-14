@@ -45,4 +45,5 @@ may be of help.
 ## Copyright
 
 Copyright (c) 2015 Protégé LLC. See http://protege.xyz for details.
+
 Copyright (c) 2011 nov matake. See LICENSE for details.
