@@ -1,30 +1,12 @@
 # Protégé Authentication|Authorization Mechanism using OpenID Connect
 
+My attempt to implement OpenID Connect on a startup that I started with my friends.
 An OpenID Connect Provider Project using the `openid_connect` gem.
-
 
 ## Resources
 
 * View original source on GitHub: https://github.com/nov/openid_connect_sample
 * Report Issues on GitHub: https://github.com/nov/openid_connect_sample/issues
-
-
-For more information, see readme and wiki for `openid_connect` gem:
-
-* https://github.com/nov/openid_connect
-
-
-## Live Example
-
-Nov has this sample running on Heroku: https://connect-op.herokuapp.com
-
-To see it in action right now:
-
-* visit [Nov's Sample RP on Heroku](https://connect-rp.herokuapp.com)
-* enter `connect-op.herokuapp.com` in the form
-* press "Discover"
-* the RP will use the OP to authenticate
-
 
 ## How to Run This Project on Your Machine
 
